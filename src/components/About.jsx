@@ -21,11 +21,10 @@ const About = () => {
           className='mt-4 mr-10 text-secondary text-[17px] max-w-2xl leading-[30px]'
         >
           Hi, I am <span className='space-blue'>Twisha</span>. I'm a senior at the University of California - Los Angeles,
-          pursuing my bachelor's degree in Computer Science. I have industry experience
-          building end-to-end production-grade services. I am constantly
-          expanding my knowledge of emerging technologies, and I am skilled at communicating
-          with end-users and building products and solutions catered to their needs.
-          I hope to make a real impact with my skills, and I would love to connect!
+          pursuing my bachelor's degree in Computer Science. I have industry experience building end-to-end production-grade 
+          services. I'm always eager to explore the latest in emerging technologies, and I have a knack for effectively 
+          communicating with end-users to develop tailored products and solutions that meet their needs. I'm really excited 
+          about the potential to make a meaningful impact with my skills, and I'd be thrilled to connect with you! 
         </motion.p>
       </div>
 

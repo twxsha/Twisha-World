@@ -43,17 +43,6 @@ const Work = () => {
                 </div>
             </div>
 
-            <div className={`flex xl:flex-row flex-col gap-10 mt-20`} >
-                <div className='xl:flex-1 xl:h-auto place-content-center'>
-                    <img src={devx} className="h-48 mt-20 ml-20" />
-                </div>
-                <div className='xl:flex-1 xl:h-auto ' >
-                    <motion.div variants={fadeIn("right", "spring")} className='w-full bg-[#182633] border-l-2 p-[1px] rounded-[10px] shadow-card' >
-                        <ExperienceCard experience={experiences[1]} />
-                    </motion.div>
-                </div>
-            </div>
-
             <div className={`flex xl:flex-row flex-col gap-10  mt-20`} >
                 <div className='xl:flex-1 xl:h-auto'>
                     <AppleCanvas2 />
@@ -72,6 +61,17 @@ const Work = () => {
                 <div className='xl:flex-1 xl:h-auto ' >
                     <motion.div variants={fadeIn("right", "spring")} className='w-full bg-[#182633] border-l-2 p-[1px] rounded-[10px] shadow-card' >
                         <ExperienceCard experience={experiences[3]} />
+                    </motion.div>
+                </div>
+            </div>
+
+            <div className={`flex xl:flex-row flex-col gap-10 mt-20`} >
+                <div className='xl:flex-1 xl:h-auto place-content-center'>
+                    <img src={devx} className="h-48 mt-20 ml-20" />
+                </div>
+                <div className='xl:flex-1 xl:h-auto ' >
+                    <motion.div variants={fadeIn("right", "spring")} className='w-full bg-[#182633] border-l-2 p-[1px] rounded-[10px] shadow-card' >
+                        <ExperienceCard experience={experiences[1]} />
                     </motion.div>
                 </div>
             </div>
