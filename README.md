@@ -2,6 +2,7 @@
 Hi, my name is Twisha, and this is my 3d portfolio website: Twisha's World.
 Learn more about me and my past work experiences!
 
+Check out the live site [here](twisha.world)! 
 ## Technologies
 This website uses the following technologies: 
 - ThreeJS
