@@ -1,0 +1,11 @@
+Model Information:
+* title:	Tesla Super Charger. ( low-poly )
+* source:	https://sketchfab.com/3d-models/tesla-super-charger-low-poly-b9fc975778f542babbb2e861d32b1acd
+* author:	Suyog modak (https://sketchfab.com/Suyogmdk)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Tesla Super Charger. ( low-poly )" (https://sketchfab.com/3d-models/tesla-super-charger-low-poly-b9fc975778f542babbb2e861d32b1acd) by Suyog modak (https://sketchfab.com/Suyogmdk) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

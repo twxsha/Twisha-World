@@ -1,0 +1,11 @@
+Model Information:
+* title:	Marc Tacchi Apple Logo Render
+* source:	https://sketchfab.com/3d-models/marc-tacchi-apple-logo-render-229770725b764919a9bc4ea16e7b10ed
+* author:	marctacchi (https://sketchfab.com/marctacchi)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Marc Tacchi Apple Logo Render" (https://sketchfab.com/3d-models/marc-tacchi-apple-logo-render-229770725b764919a9bc4ea16e7b10ed) by marctacchi (https://sketchfab.com/marctacchi) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
