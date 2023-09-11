@@ -6,7 +6,7 @@ const styles = {
   titleText:
     "font-orbitron lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2",
   titleSubText:
-    "text-secondary font-sm lg:text-[25px] sm:text-[20px] xs:text-[15px] text-[14px] lg:leading-[40px]",
+    "text-secondary font-sm lg:leading-[40px]",
   sectionHeadText:
     "text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]",
   welcomeText:
