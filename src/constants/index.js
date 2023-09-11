@@ -89,12 +89,12 @@ const experiences = [
     points: [
       "Returned to Apple for my second internship in the Apple Cloud Services Security Team.",
       "Developed an end-to-end application to prevent critical security vulnerabilities at Apple.",
-      "Communicated with designers, managers, and developers to deliver a quality product.",
-      "Engaged with internal customers to understand requirements and build features catered to the end-user.",
+      "Communicated with designers, managers, and developers to deliver a solution that is used by 100s of Apple Engineers.",
+      "Engaged with internal customers to understand requirements and build features catered to the needs of end-users.",
     ],
   },
   {
-    title: "President & Software Developer",
+    title: "President",
     company_name: "UCLA DevX",
     date: "Jan 2021 - Present",
     points: [

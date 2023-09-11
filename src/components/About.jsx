@@ -20,8 +20,8 @@ const About = () => {
           variants={fadeIn("", "", 0.1, 1)}
           className='mt-4 mr-10 text-secondary text-[17px] max-w-2xl leading-[30px]'
         >
-          Hi, I am <span className='space-blue'>Twisha</span>. I'm a senior at the University of California - Los Angeles,
-          pursuing my bachelor's degree in Computer Science. I have industry experience building end-to-end production-grade 
+          Hi, I am <span className='text-[#de1289] font-bold'>Twisha</span>. I'm a senior at the <span className="italic">University of California - Los Angeles </span>
+          in the Samueli School of Engineering, pursuing my bachelor's degree in <span className="italic">Computer Science</span>. <br/>I have industry experience building end-to-end production-grade 
           services. I'm always eager to explore the latest in emerging technologies, and I have a knack for effectively 
           communicating with end-users to develop tailored products and solutions that meet their needs. I'm really excited 
           about the potential to make a meaningful impact with my skills, and I'd be thrilled to connect with you! 
