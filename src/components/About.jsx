@@ -31,7 +31,7 @@ const About = () => {
 
       <div className='xl:flex xl:h-auto gap-10' >
         <div>
-          <a href="https://www.linkedin.com/in/twishasundararajan/" >
+          <a href="https://www.linkedin.com/in/twishasundararajan/" target="_blank">
             <Tilt className='xs:w-[220px] w-full'>
               <motion.div
                 variants={fadeIn("right", "spring")}
