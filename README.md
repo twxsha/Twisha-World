@@ -14,4 +14,4 @@ This website uses the following technologies:
 `npm install --legacy-peer-deps` \
 `npm run dev`
 
-<img width="2033" alt="Screenshot 2023-09-10 at 6 19 01 PM" src="https://github.com/twxsha/twisha_world/assets/72046574/87d8a9e6-9de7-46ba-86de-c5dab99784e4">
+<img width="1455" alt="Screenshot 2023-11-06 at 12 52 16 PM" src="https://github.com/twxsha/twisha_world/assets/72046574/2c405f8d-506a-48fe-b422-1ecb9b674679">
