@@ -11,6 +11,24 @@ const styles = {
     "text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]",
   welcomeText:
     "md:text-[40px] text-[14px] text-secondary uppercase tracking-wider",
+
+  swiper: {
+    width: "100%",
+    height: "100%",
+  },
+  swiperSlide: {
+    textAlign: "center",
+    fontSize: "18px",
+    background: "#fff",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  swiperScrollbar: {
+    background: "rgba(255, 255, 255, 0.1)", // Light transparent track
+    borderRadius: "10px",
+    height: "6px", // Adjust height
+  },
 };
 
 export { styles };

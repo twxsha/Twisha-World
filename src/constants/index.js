@@ -12,8 +12,11 @@ import {
   figma,
   docker,
   threejs,
+  mercor,
+  devx,
 } from "../assets";
 
+import { AppleCanvas, AppleCanvas2, TeslaCanvas } from "../components/canvas";
 
 export const navLinks = [
   {
@@ -92,6 +95,7 @@ const experiences = [
       "Communicated with designers, managers, and developers to deliver a solution that is used by 100s of Apple Engineers.",
       "Engaged with internal customers to understand requirements and build features catered to the needs of end-users.",
     ],
+    imageSrc: AppleCanvas,
   },
   {
     title: "President",
@@ -103,6 +107,7 @@ const experiences = [
       "Pioneered the intern program to mentor underclassmen in the fundamentals of website development and collaborative production.",
       "Contributed to several project teams as a full-stack developer."
     ],
+    imageSrc: devx,
   },
   {
     title: "Software Engineer Intern",
@@ -112,8 +117,9 @@ const experiences = [
       "First internship at Apple as a Software Engineering in the Apple Cloud Services Security Team.",
       "Developed several server-side security features including a rate limiting algorithm in GoLang using a Redis Cache to protect against DDoS attacks.",
       "Wrote unit tests and continuously deployed applications to Kubernetes production clusters using Spinnaker and Rio.",
-      "Leveraged observability tools for monitoring health of service, including Splunk for logging and Prometheus and Grafana for metrics.",
+      "Leveraged observability tools for monitoring service health, including Splunk, Prometheus, Pprof and Grafana.",
     ],
+    imageSrc: AppleCanvas,
   },
   {
     title: "Software Engineer Intern",
@@ -125,6 +131,31 @@ const experiences = [
       "Worked on backend integration with SQL Databases, business logic in Spark with GoLang, Splunk Logging, and Test Automation Suite in Python.",
       "Improved a key Supercharging runtime functionality by 25% by implementing an in-memory cache.",
     ],
+    imageSrc: TeslaCanvas,
+  },
+  {
+    title: "Software Engineer Manager",
+    company_name: "Mercor",
+    date: "March 2024 - June 2024",
+    points: [
+      "Mercor is an SF based start up revolutionizing the recruitment industry with its AI-based platform.",
+      "Worked as a full stack Software Engineer and managed a team of engineers to build out the applicant user flow.",
+      "Worked on FrontEnd development, managed several backend services, UI/UX, Figma design, prompt engineering and data management.",
+      "Developed an AI-powered resume builder feature that parses resumes, formats them into a professional, readable layout, and provides actionable improvement suggestions.",
+    ],
+    imageSrc: mercor,
+  },
+  {
+    title: "Software Engineer",
+    company_name: "Apple",
+    date: "July 2024 - Present",
+    points: [
+      "Rejoined Apple as a Security Software Engineer on the Apple Services - Identity & Access Management team.",
+      "Developing and maintaining backend services with a focus on scalability and best authorization practices.",
+      "Handling On-Call responsibilities to ensure service reliability and rapid issue resolution.",
+      "Optimizing service performance by leveraging advanced security architectures to enhance CPU efficiency, memory utilization, and latency."
+    ],
+    imageSrc: AppleCanvas,
   },
 ];
 

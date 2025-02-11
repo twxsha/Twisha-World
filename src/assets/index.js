@@ -16,6 +16,8 @@ import threejs from "./tech/threejs.svg";
 import linkedin from "./linkedin.png";
 import devx from "./devx.svg";
 import menu from "./menu.svg"
+import mercor from "./mercor.png";
+import apple from "./apple.png";
 
 
 export {
@@ -36,5 +38,7 @@ export {
   tailwind,
   typescript,
   threejs,
-  menu
+  menu,
+  mercor,
+  apple,
 };
