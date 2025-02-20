@@ -150,7 +150,7 @@ const experiences = [
     company_name: "Apple",
     date: "July 2024 - Present",
     points: [
-      "Rejoined Apple as a Security Software Engineer on the Apple Services - Identity & Access Management team.",
+      "Returned to Apple full-time as a Security Software Engineer on the Apple Services - Identity & Access Management team.",
       "Developing and maintaining backend services with a focus on scalability and best authorization practices.",
       "Handling On-Call responsibilities to ensure service reliability and rapid issue resolution.",
       "Optimizing service performance by leveraging advanced security architectures to enhance CPU efficiency, memory utilization, and latency."
