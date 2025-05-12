@@ -18,6 +18,7 @@ import devx from "./devx.svg";
 import menu from "./menu.svg"
 import mercor from "./mercor.png";
 import apple from "./apple.png";
+import pointer from "./pointer.png";
 
 
 export {
@@ -41,4 +42,5 @@ export {
   menu,
   mercor,
   apple,
+  pointer,
 };
