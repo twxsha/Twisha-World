@@ -1,21 +1,42 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import ParallaxTilt from 'react-parallax-tilt';
-import { motion } from "framer-motion";
-
+import { motion, useInView } from "framer-motion";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
-import { linkedin } from "../assets";
+import { linkedin, pointer } from "../assets";
 
 const About = () => {
+  const linkedInRef = useRef(null);
+  const isInView = useInView(linkedInRef, { once: true, margin: "-100px" });
+
+  const [showClickMe, setShowClickMe] = useState(false);
+
+  useEffect(() => {
+    let showTimeout, hideTimeout;
+    if (isInView) {
+      // Show after 1 second
+      showTimeout = setTimeout(() => {
+        setShowClickMe(true);
+        // Hide after animation duration
+        hideTimeout = setTimeout(() => {
+          setShowClickMe(false);
+        }, CLICK_ME_ANIMATION_DURATION * 2000);
+      }, 1000);
+    }
+    return () => {
+      clearTimeout(showTimeout);
+      clearTimeout(hideTimeout);
+    };
+  }, [isInView]);
+
   return (
     <div className={`xl:mt-20 w-full flex xl:flex-row justify-evenly items-center flex-col gap-10`} >
-      <div >
+      <div>
         <motion.div variants={textVariant()}>
           <p className={styles.welcomeText}>who am i?</p>
           <h2 className={styles.sectionHeadText}>ABOUT</h2>
         </motion.div>
-
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
           className='mt-4 mr-10 text-secondary text-[17px] max-w-2xl leading-[30px]'
@@ -30,24 +51,49 @@ const About = () => {
         </motion.p>
       </div>
 
-      <div className='xl:flex xl:h-auto gap-10' >
+      <div className='xl:flex xl:h-auto gap-10'>
         <div>
-          <a href="https://www.linkedin.com/in/twishasundararajan/" target="_blank">
-            <div className='xs:w-[220px] w-full'>
+          <a href="https://www.linkedin.com/in/twishasundararajan/" target="_blank" rel="noopener noreferrer">
+            <div className='xs:w-[220px] w-full relative' ref={linkedInRef}>
               <ParallaxTilt>
                 <motion.div
                   variants={fadeIn("right", "spring")}
-                  className='w-full bg-gradient-to-b from-[#6193c2] to-white-100 p-[1px] rounded-[20px] shadow-card' >
-                  <div className='rounded-[20px] min-h-[280px]flex justify-evenly items-center flex-col' >
+                  className='w-full bg-gradient-to-b from-[#6193c2] to-white-100 p-[1px] rounded-[20px] shadow-card relative'>
+                  <div className='rounded-[20px] min-h-[280px] flex justify-evenly items-center flex-col'>
                     <h3 className='text-white text-[20px] font-bold text-center'> Linkedin </h3>
-                    <img src={linkedin} alt='web-development' className='w-full h-full object-contain' />
+                    <img src={linkedin} alt='linkedin' className='w-full h-full object-contain' />
                     <h3 className='text-[#6193c2] text-[20px] font-bold text-center'> Linkedin </h3>
                   </div>
+                  {/* Animated "click me" prompt, absolutely centered over image */}
+                  {showClickMe && (
+                    <motion.div
+                      className="absolute top-2/3 left-1/3 flex items-center gap-2 pointer-events-none"
+                      style={{ transform: "translate(-50%, -50%)" }}
+                      initial={{ opacity: 1, scale: 1 }}
+                      animate={{
+                        scale: [1, 1.3, 1, 1.3, 1],
+                        opacity: [1, 1, 1, 1, 0],
+                      }}
+                      transition={{
+                        duration: 3,
+                        ease: "easeInOut",
+                      }}
+                    >
+                      <img
+                        src={pointer}
+                        alt="click-pointer"
+                        style={{ transform: "rotate(-30deg)" }}
+                        className="h-[23px] w-auto object-contain"
+                      />
+                      <h1 className={`${styles.pointerText}`}>
+                        click me
+                      </h1>
+                    </motion.div>
+                  )}
                 </motion.div>
               </ParallaxTilt>
             </div>
           </a>
-          <h1 className={`mt-4 text-secondary text-[17px] max-w-2xl leading-[30px]`}> ( click me ) </h1>
         </div>
       </div>
     </div>

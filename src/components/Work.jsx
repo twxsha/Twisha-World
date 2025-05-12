@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
-import { AppleCanvas, AppleCanvas2, TeslaCanvas } from "./canvas";
+import { AppleCanvas, TeslaCanvas } from "./canvas";
 import { fadeIn, textVariant } from "../utils/motion";
 import "react-vertical-timeline-component/style.min.css";
 import { experiences } from "../constants";
@@ -51,66 +51,66 @@ const Work = () => {
     <div className={`xl:mt-20 w-full`}>
       <p className={styles.welcomeText}>MY WORK</p>
       <h2 className={styles.sectionHeadText}>Experiences</h2>
-          <div className={`flex xl:flex-row flex-col  mt-20`}>
-            <div className="xl:flex-1 xl:h-auto flex justify-center items-center">
-              <AppleCanvas2 />
-            </div>
-            <div className="xl:flex-1 xl:h-auto ">
-              <div className="w-full bg-[#182633] border-l-2 p-[1px] rounded-[10px]">
-                <ExperienceCard experience={experiences[5]} />
-              </div>
-            </div>
+      <div className={`flex xl:flex-row flex-col  mt-20`}>
+        <div className="xl:flex-1 xl:h-auto flex justify-center items-center">
+          <AppleCanvas />
+        </div>
+        <div className="xl:flex-1 xl:h-auto ">
+          <div className="w-full bg-[#182633] border-l-2 p-[1px] rounded-[10px]">
+            <ExperienceCard experience={experiences[5]} />
           </div>
-          <div className={`flex xl:flex-row flex-col gap-10  mt-20`}>
-            <div className="xl:flex-1 xl:h-auto flex justify-center items-center">
-              <img src={mercor} className="h-60" />
-            </div>
-            <div className="xl:flex-1 xl:h-auto ">
-              <div className="w-full bg-[#182633] border-l-2 p-[1px] rounded-[10px]">
-                <ExperienceCard experience={experiences[4]} />
-              </div>
-            </div>
+        </div>
+      </div>
+      <div className={`flex xl:flex-row flex-col gap-10  mt-20`}>
+        <div className="xl:flex-1 xl:h-auto flex justify-center items-center">
+          <img src={mercor} className="h-60" />
+        </div>
+        <div className="xl:flex-1 xl:h-auto ">
+          <div className="w-full bg-[#182633] border-l-2 p-[1px] rounded-[10px]">
+            <ExperienceCard experience={experiences[4]} />
           </div>
-          <div className={`flex xl:flex-row flex-col gap-10  mt-20`}>
-            <div className="xl:flex-1 xl:h-auto flex justify-center items-center">
-              <img src={apple} className="h-40" />
-            </div>
-            <div className="xl:flex-1 xl:h-auto ">
-              <div className="w-full bg-[#182633] border-l-2 p-[1px] rounded-[10px]">
-                <ExperienceCard experience={experiences[0]} />
-              </div>
-            </div>
+        </div>
+      </div>
+      <div className={`flex xl:flex-row flex-col gap-10  mt-20`}>
+        <div className="xl:flex-1 xl:h-auto flex justify-center items-center">
+          <AppleCanvas />
+        </div>
+        <div className="xl:flex-1 xl:h-auto ">
+          <div className="w-full bg-[#182633] border-l-2 p-[1px] rounded-[10px]">
+            <ExperienceCard experience={experiences[0]} />
           </div>
-          <div className={`flex xl:flex-row flex-col gap-10  mt-20`}>
-            <div className="xl:flex-1 xl:h-auto flex justify-center items-center">
-              <img src={apple} className="h-40" />
-            </div>
-            <div className="xl:flex-1 xl:h-auto ">
-              <div className="w-full bg-[#182633] border-l-2 p-[1px] rounded-[10px]">
-                <ExperienceCard experience={experiences[2]} />
-              </div>
-            </div>
+        </div>
+      </div>
+      <div className={`flex xl:flex-row flex-col gap-10  mt-20`}>
+        <div className="xl:flex-1 xl:h-auto flex justify-center items-center">
+          <AppleCanvas />
+        </div>
+        <div className="xl:flex-1 xl:h-auto ">
+          <div className="w-full bg-[#182633] border-l-2 p-[1px] rounded-[10px]">
+            <ExperienceCard experience={experiences[2]} />
           </div>
-          <div className={`flex xl:flex-row flex-col gap-10  mt-20`}>
-            <div className="xl:flex-1 xl:h-auto">
-              <TeslaCanvas />
-            </div>
-            <div className="xl:flex-1 xl:h-auto ">
-              <div className="w-full bg-[#182633] border-l-2 p-[1px] rounded-[10px]">
-                <ExperienceCard experience={experiences[3]} />
-              </div>
-            </div>
+        </div>
+      </div>
+      <div className={`flex xl:flex-row flex-col gap-10  mt-20`}>
+        <div className="xl:flex-1 xl:h-auto flex justify-center items-center">
+          <TeslaCanvas />
+        </div>
+        <div className="xl:flex-1 xl:h-auto ">
+          <div className="w-full bg-[#182633] border-l-2 p-[1px] rounded-[10px]">
+            <ExperienceCard experience={experiences[3]} />
           </div>
-          <div className={`flex xl:flex-row flex-col gap-10 mt-20`}>
-            <div className="xl:flex-1 xl:h-auto flex justify-center items-center">
-              <img src={devx} className="h-40" />
-            </div>
-            <div className="xl:flex-1 xl:h-auto ">
-              <div className="w-full bg-[#182633] border-l-2 p-[1px] rounded-[10px]">
-                <ExperienceCard experience={experiences[1]} />
-              </div>
-            </div>
+        </div>
+      </div>
+      <div className={`flex xl:flex-row flex-col gap-10 mt-20`}>
+        <div className="xl:flex-1 xl:h-auto flex justify-center items-center">
+          <img src={devx} className="h-40" />
+        </div>
+        <div className="xl:flex-1 xl:h-auto ">
+          <div className="w-full bg-[#182633] border-l-2 p-[1px] rounded-[10px]">
+            <ExperienceCard experience={experiences[1]} />
           </div>
+        </div>
+      </div>
     </div>
   );
 };

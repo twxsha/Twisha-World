@@ -16,7 +16,7 @@ import {
   devx,
 } from "../assets";
 
-import { AppleCanvas, AppleCanvas2, TeslaCanvas } from "../components/canvas";
+import { AppleCanvas, TeslaCanvas } from "../components/canvas";
 
 export const navLinks = [
   {
