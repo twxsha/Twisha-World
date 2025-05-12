@@ -134,7 +134,7 @@ const experiences = [
     imageSrc: TeslaCanvas,
   },
   {
-    title: "Software Engineer Manager",
+    title: "Software Engineer",
     company_name: "Mercor",
     date: "March 2024 - June 2024",
     points: [

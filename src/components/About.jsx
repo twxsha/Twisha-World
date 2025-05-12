@@ -42,8 +42,8 @@ const About = () => {
           className='mt-4 mr-10 text-secondary text-[17px] max-w-2xl leading-[30px]'
         >
           Hi, I am <span className='text-[#de1289] font-bold'>Twisha</span>.
-          I am a Security Software Engineer at <span className='font-bold'>Apple</span>,
-          building and maintaining internal Identity-based Access Management services. <br /> <br />
+          I am a CyberSecurity Engineer building and maintaining Identity-based Access Management 
+          services at <span className='font-bold'>Apple</span>. <br /> <br />
           I recently graduated from the <span className="italic">University of California - Los Angeles </span>
           Samueli School of Engineering, pursuing my bachelor's degree in <span className="italic">Computer Science</span>. <br /> <br />
           I have industry experience building end-to-end production-grade services, and I'm always eager to explore the latest in emerging technologies.
