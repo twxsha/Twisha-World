@@ -18,7 +18,7 @@ const About = () => {
         setShowClickMe(true);
         hideTimeout = setTimeout(() => {
           setShowClickMe(false);
-        }, 6000); // Adjusted duration
+        }, 6000);
       }, 1000);
     }
     return () => {

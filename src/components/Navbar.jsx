@@ -95,7 +95,7 @@ const Navbar = () => {
                   {navLinks.map((nav) => (
                     <a
                     key={nav.id}
-                    href={`${nav.id}`}
+                    href={`#${nav.id}`}
                     onClick={() => {
                       setToggle(false);
                       setActive(nav.title);
