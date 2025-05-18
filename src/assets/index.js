@@ -19,6 +19,7 @@ import menu from "./menu.svg"
 import mercor from "./mercor.png";
 import apple from "./apple.png";
 import pointer from "./pointer.png";
+import circle from "./circle.png";
 
 
 export {
@@ -43,4 +44,5 @@ export {
   mercor,
   apple,
   pointer,
+  circle,
 };

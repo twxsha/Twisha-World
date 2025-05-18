@@ -86,3 +86,17 @@ export const staggerContainer = (staggerChildren, delayChildren) => {
     },
   };
 };
+
+export const parallaxVariant = {
+  initial: { opacity: 0, y: 50 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 40,
+      damping: 10,
+      duration: 0.8,
+    },
+  },
+};

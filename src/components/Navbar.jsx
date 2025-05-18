@@ -27,66 +27,92 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`${styles.paddingX
-        } w-full flex items-center py-5 fixed top-0 z-20 ${scrolled ? "bg-primary" : "bg-transparent"
-        }`}
+      className={`${
+        styles.paddingX
+      } w-full flex items-center py-5 fixed top-0 z-20 bg-primary ${
+        scrolled ? "bg-primary" : "bg-primary"
+      }`}
     >
-      <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
+      <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
         <Link
-          to='/'
-          className='flex items-center gap-2'
+          to="/"
+          className="flex items-center gap-2"
           onClick={() => {
             setActive("");
             window.scrollTo(0, 0);
           }}
         >
-          <p className='text-white text-[18px] font-bold cursor-pointer flex '>
+          <p className="text-white text-[18px] font-bold cursor-pointer flex ">
             Twisha&nbsp;
-            <span className='sm:block hidden'>'s World</span>
+            <span className="sm:block hidden">'s World</span>
           </p>
         </Link>
 
-        <ul className='list-none hidden sm:flex flex-row gap-10'>
+        <ul className="list-none hidden sm:flex flex-row gap-10">
           {navLinks.map((nav) => (
             <li
               key={nav.id}
-              className={`${active === nav.title ? "text-white" : "text-secondary"
-                } hover:text-white text-[18px] font-medium cursor-pointer`}
+              className={`${
+                active === nav.title ? "text-white" : "text-secondary"
+              } hover:text-white text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(nav.title)}
             >
-              <a href={`#${nav.id}`}>{nav.title}</a>
+              <a href={`${nav.id}`}>{nav.title}</a>
             </li>
           ))}
         </ul>
 
-        <div className='sm:hidden flex flex-1 justify-end items-center'>
+        <div className="sm:hidden flex flex-1 justify-end items-center">
           <img
             src={toggle ? close : menu}
-            alt='menu'
-            className='w-[28px] h-[28px] object-contain'
+            alt="menu"
+            className="w-[28px] h-[28px] z-10 object-contain"
             onClick={() => setToggle(!toggle)}
           />
+          {toggle && (
+            <>
+              {/* Backdrop */}
+              <div
+                className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
+                onClick={() => setToggle(false)}
+              />
 
-          <div
-            className={`${!toggle ? "hidden" : "flex"
-              } p-6 bg-[#182633] border-2 absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
-          >
-            <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
-              {navLinks.map((nav) => (
-                <li
-                  key={nav.id}
-                  className={`font-poppins font-medium cursor-pointer text-[16px] ${active === nav.title ? "text-white" : "text-secondary"
+              {/* Slide-in Nav Drawer */}
+              <div className="fixed top-0 right-0 h-full w-64 bg-white/10 backdrop-blur-lg shadow-xl z-50 flex flex-col p-6 animate-slide-in">
+                {/* Close Icon */}
+                <div className="flex justify-end">
+                  <button onClick={() => setToggle(false)}>
+                    <img
+                      src={close}
+                      alt="Close menu"
+                      className="w-6 h-6 object-contain cursor-pointer"
+                    />
+                  </button>
+                </div>
+
+                {/* Navigation */}
+                <nav className="mt-10 space-y-6">
+                  {navLinks.map((nav) => (
+                    <a
+                    key={nav.id}
+                    href={`${nav.id}`}
+                    onClick={() => {
+                      setToggle(false);
+                      setActive(nav.title);
+                    }}
+                    className={`block text-lg font-medium tracking-wide px-4 py-2 rounded-lg transition-all duration-200 ${
+                      active === nav.title
+                        ? "bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg"
+                        : "text-gray-300 hover:text-white hover:bg-white/10"
                     }`}
-                  onClick={() => {
-                    setToggle(!toggle);
-                    setActive(nav.title);
-                  }}
-                >
-                  <a href={`#${nav.id}`}>{nav.title}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
+                  >
+                    {nav.title}
+                  </a>
+                  ))}
+                </nav>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </nav>

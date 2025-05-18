@@ -20,6 +20,10 @@ import { AppleCanvas, TeslaCanvas } from "../components/canvas";
 
 export const navLinks = [
   {
+    id: "/",
+    title: "Home",
+  },
+  {
     id: "about",
     title: "About",
   },
@@ -27,6 +31,25 @@ export const navLinks = [
     id: "work",
     title: "Work",
   },
+  // {
+  //   id: "learn",
+  //   title: "Learn",
+  // },
+];
+
+export const buttons = [
+  {
+    id: "about",
+    title: "About",
+  },
+  {
+    id: "work",
+    title: "Work",
+  },
+  // {
+  //   id: "learn",
+  //   title: "Learn",
+  // },
 ];
 
 const technologies = [
@@ -98,9 +121,9 @@ const experiences = [
     imageSrc: AppleCanvas,
   },
   {
-    title: "President",
+    title: "President & Software Developer",
     company_name: "UCLA DevX",
-    date: "Jan 2021 - Present",
+    date: "Jan 2021 - June 2024",
     points: [
       "Leading the development of applications that serve the greater Los Angeles community." ,
       "Spearheading our consulting program, aimed supporting local businesses and assisting startups build MVPs." ,

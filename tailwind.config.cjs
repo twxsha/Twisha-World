@@ -18,6 +18,9 @@ module.exports = {
       screens: {
         xs: "450px",
       },
+      animation: {
+        "spin-slow": "spin 7s linear infinite",
+      },
     },
   },
   plugins: [],

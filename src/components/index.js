@@ -6,7 +6,6 @@ import Home from "./Home";
 import CanvasLoader from "./Loader";
 import Work from './Work';
 import Credit from "./Credit";
-import Landing from './Landing';
 
 
 export {
@@ -20,5 +19,4 @@ export {
   EarthCanvas, 
   BallCanvas, 
   StarsCanvas,
-  Landing
 };

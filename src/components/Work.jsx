@@ -1,118 +1,77 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
-import { AppleCanvas, TeslaCanvas } from "./canvas";
+import { AppleCanvas, TeslaCanvas, StarsCanvas, DevXCanvas } from "./canvas";
 import { fadeIn, textVariant } from "../utils/motion";
-import "react-vertical-timeline-component/style.min.css";
 import { experiences } from "../constants";
-import { SectionWrapper } from "../hoc";
-import { slideIn } from "../utils/motion";
-import { devx, mercor, apple } from "../assets";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Mousewheel, Scrollbar } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+import { devx, mercor } from "../assets";
 
-const ExperienceCard = ({ experience }) => {
-  return (
-    <div className="m-5 rounded-[20px] min-h-[280px] justify-evenly items-center flex-col">
-      <div>
-        <h3 className="text-white text-[24px] font-bold">{experience.title}</h3>
-        <p
-          className="text-[#6193c2] text-[16px] font-semibold"
-          style={{ margin: 0 }}
-        >
-          {" "}
-          {experience.company_name}{" "}
-        </p>
-      </div>
-      <ul className="mt-5 list-disc ml-5 space-y-2">
-        {experience.points.map((point, index) => (
-          <li
-            key={`experience-point-${index}`}
-            className="text-white-100 text-[14px] pl-1 tracking-wider"
-          >
-            {" "}
-            {point}{" "}
-          </li>
-        ))}
-      </ul>
-      <p className="text-secondary text-[14px] mt-3 font-semibold">
-        {" "}
-        {experience.date}{" "}
-      </p>
-    </div>
-  );
-};
+const ExperienceCard = ({ experience }) => (
+  <motion.div
+    variants={fadeIn("up", "spring", 0.1, 0.75)}
+    className="bg-white/10 rounded-2xl p-6 shadow-lg"
+  >
+    <h3 className="text-white text-xl font-bold mb-1">{experience.title}</h3>
+    <p className="text-[#6193c2] font-semibold text-sm mb-4">
+      {experience.company_name}
+    </p>
+    <ul className="list-disc pl-5 space-y-2">
+      {experience.points.map((point, index) => (
+        <li key={index} className="text-white-100 text-sm leading-relaxed">
+          {point}
+        </li>
+      ))}
+    </ul>
+    <p className="text-secondary text-xs mt-4">{experience.date}</p>
+  </motion.div>
+);
 
 const Work = () => {
+  const visualMap = {
+    AppleCanvas: <AppleCanvas />,
+    TeslaCanvas: <TeslaCanvas />,
+    mercor: <img src={mercor} className="h-60" alt="Mercor" />,
+    DevXCanvas: <DevXCanvas/>,
+  };
+
+  const experienceOrder = [
+    { id: 5, visual: "AppleCanvas" },
+    { id: 4, visual: "mercor" },
+    { id: 0, visual: "AppleCanvas" },
+    { id: 2, visual: "AppleCanvas" },
+    { id: 3, visual: "TeslaCanvas" },
+    { id: 1, visual: "DevXCanvas" },
+  ];
+
   return (
-    <div className={`xl:mt-20 w-full`}>
-      <p className={styles.welcomeText}>MY WORK</p>
-      <h2 className={styles.sectionHeadText}>Experiences</h2>
-      <div className={`flex xl:flex-row flex-col  mt-20`}>
-        <div className="xl:flex-1 xl:h-auto flex justify-center items-center">
-          <AppleCanvas />
+    <div className={`relative bg-primary min-h-screen w-screen`}>
+      <section className={`${styles.padding}`}>
+        <motion.div
+          variants={textVariant()}
+          className="sticky top-[65px] z-10 bg-primary pb-4"
+        >
+          <p className={styles.welcomeText}>MY WORK</p>
+          <h2 className={styles.sectionHeadText}>Experiences</h2>
+        </motion.div>
+
+        <div className="mt-16 space-y-24">
+          {experienceOrder.map(({ id, visual }) => (
+            <div
+              key={id}
+              className="flex flex-col xl:flex-row gap-10 justify-between items-center"
+            >
+              <div className="xl:flex-1 flex justify-center">
+                {visualMap[visual]}
+              </div>
+              <div className="xl:flex-1">
+                <ExperienceCard experience={experiences[id]} />
+              </div>
+            </div>
+          ))}
         </div>
-        <div className="xl:flex-1 xl:h-auto ">
-          <div className="w-full bg-[#182633] border-l-2 p-[1px] rounded-[10px]">
-            <ExperienceCard experience={experiences[5]} />
-          </div>
-        </div>
-      </div>
-      <div className={`flex xl:flex-row flex-col gap-10  mt-20`}>
-        <div className="xl:flex-1 xl:h-auto flex justify-center items-center">
-          <img src={mercor} className="h-60" />
-        </div>
-        <div className="xl:flex-1 xl:h-auto ">
-          <div className="w-full bg-[#182633] border-l-2 p-[1px] rounded-[10px]">
-            <ExperienceCard experience={experiences[4]} />
-          </div>
-        </div>
-      </div>
-      <div className={`flex xl:flex-row flex-col gap-10  mt-20`}>
-        <div className="xl:flex-1 xl:h-auto flex justify-center items-center">
-          <AppleCanvas />
-        </div>
-        <div className="xl:flex-1 xl:h-auto ">
-          <div className="w-full bg-[#182633] border-l-2 p-[1px] rounded-[10px]">
-            <ExperienceCard experience={experiences[0]} />
-          </div>
-        </div>
-      </div>
-      <div className={`flex xl:flex-row flex-col gap-10  mt-20`}>
-        <div className="xl:flex-1 xl:h-auto flex justify-center items-center">
-          <AppleCanvas />
-        </div>
-        <div className="xl:flex-1 xl:h-auto ">
-          <div className="w-full bg-[#182633] border-l-2 p-[1px] rounded-[10px]">
-            <ExperienceCard experience={experiences[2]} />
-          </div>
-        </div>
-      </div>
-      <div className={`flex xl:flex-row flex-col gap-10  mt-20`}>
-        <div className="xl:flex-1 xl:h-auto flex justify-center items-center">
-          <TeslaCanvas />
-        </div>
-        <div className="xl:flex-1 xl:h-auto ">
-          <div className="w-full bg-[#182633] border-l-2 p-[1px] rounded-[10px]">
-            <ExperienceCard experience={experiences[3]} />
-          </div>
-        </div>
-      </div>
-      <div className={`flex xl:flex-row flex-col gap-10 mt-20`}>
-        <div className="xl:flex-1 xl:h-auto flex justify-center items-center">
-          <img src={devx} className="h-40" />
-        </div>
-        <div className="xl:flex-1 xl:h-auto ">
-          <div className="w-full bg-[#182633] border-l-2 p-[1px] rounded-[10px]">
-            <ExperienceCard experience={experiences[1]} />
-          </div>
-        </div>
-      </div>
+      </section>
     </div>
   );
 };
 
-export default SectionWrapper(Work, "work");
+export default Work;
