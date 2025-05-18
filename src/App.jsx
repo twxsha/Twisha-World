@@ -1,18 +1,20 @@
 import React from "react";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import { Credit, Landing } from "./components";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Credit, Home, About, Work, Navbar } from "./components";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Landing/>} /> 
-        <Route path="/credit" element={<Credit/>} />
-      </Routes>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/work" element={<Work />} />
+          <Route path="/learn" element={<Credit />} />
+          <Route path="/credit" element={<Credit />} />
+        </Routes>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
-
-
