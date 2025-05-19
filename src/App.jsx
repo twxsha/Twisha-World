@@ -1,11 +1,14 @@
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Credit, Home, About, Work, Navbar } from "./components";
 
 const App = () => {
   return (
     <>
-    <BrowserRouter>
+      <Analytics />
+      <SpeedInsights />
+      <BrowserRouter>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -14,8 +17,7 @@ const App = () => {
           <Route path="/learn" element={<Credit />} />
           <Route path="/credit" element={<Credit />} />
         </Routes>
-    </BrowserRouter>
-     <Analytics/>
+      </BrowserRouter>
     </>
   );
 };

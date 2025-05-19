@@ -12,8 +12,12 @@ const Navbar = () => {
 
   useEffect(() => {
     const current = navLinks.find((nav) => nav.id === location.pathname);
-    if (current) setActive(current.title);
-  }, [location]);
+    if (current) {
+      setActive(current.title);
+    } else {
+      setActive("");
+    }
+  }, [location.pathname]);
 
   return (
     <nav
