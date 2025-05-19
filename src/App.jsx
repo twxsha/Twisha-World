@@ -1,9 +1,10 @@
-import React from "react";
+import { Analytics } from "@vercel/analytics/react"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Credit, Home, About, Work, Navbar } from "./components";
 
 const App = () => {
   return (
+    <>
     <BrowserRouter>
         <Navbar />
         <Routes>
@@ -14,6 +15,8 @@ const App = () => {
           <Route path="/credit" element={<Credit />} />
         </Routes>
     </BrowserRouter>
+     <Analytics/>
+    </>
   );
 };
 
