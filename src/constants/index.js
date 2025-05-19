@@ -24,11 +24,11 @@ export const navLinks = [
     title: "Home",
   },
   {
-    id: "about",
+    id: "/about",
     title: "About",
   },
   {
-    id: "work",
+    id: "/work",
     title: "Work",
   },
   // {
@@ -39,11 +39,11 @@ export const navLinks = [
 
 export const buttons = [
   {
-    id: "about",
+    id: "/about",
     title: "About",
   },
   {
-    id: "work",
+    id: "/work",
     title: "Work",
   },
   // {
