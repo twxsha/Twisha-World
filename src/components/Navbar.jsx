@@ -1,44 +1,30 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 import { styles } from "../styles";
 import { navLinks } from "../constants";
-import { logo, menu, close } from "../assets";
+import { menu, close } from "../assets";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      if (scrollTop > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    const current = navLinks.find((nav) => nav.id === location.pathname);
+    if (current) setActive(current.title);
+  }, [location]);
 
   return (
     <nav
-      className={`${
-        styles.paddingX
-      } w-full flex items-center py-5 fixed top-0 z-20 bg-primary ${
-        scrolled ? "bg-primary" : "bg-primary"
-      }`}
+      className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-primary`}
     >
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
         <Link
           to="/"
           className="flex items-center gap-2"
           onClick={() => {
-            setActive("");
+            setActive("Home");
             window.scrollTo(0, 0);
           }}
         >
@@ -57,7 +43,7 @@ const Navbar = () => {
               } hover:text-white text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(nav.title)}
             >
-              <a href={`${nav.id}`}>{nav.title}</a>
+              <Link to={nav.id}>{nav.title}</Link>
             </li>
           ))}
         </ul>
@@ -93,21 +79,21 @@ const Navbar = () => {
                 {/* Navigation */}
                 <nav className="mt-10 space-y-6">
                   {navLinks.map((nav) => (
-                    <a
-                    key={nav.id}
-                    href={`#${nav.id}`}
-                    onClick={() => {
-                      setToggle(false);
-                      setActive(nav.title);
-                    }}
-                    className={`block text-lg font-medium tracking-wide px-4 py-2 rounded-lg transition-all duration-200 ${
-                      active === nav.title
-                        ? "bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg"
-                        : "text-gray-300 hover:text-white hover:bg-white/10"
-                    }`}
-                  >
-                    {nav.title}
-                  </a>
+                    <Link
+                      key={nav.id}
+                      to={nav.id}
+                      onClick={() => {
+                        setToggle(false);
+                        setActive(nav.title);
+                      }}
+                      className={`block text-lg font-medium tracking-wide px-4 py-2 rounded-lg transition-all duration-200 ${
+                        active === nav.title
+                          ? "bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg"
+                          : "text-gray-300 hover:text-white hover:bg-white/10"
+                      }`}
+                    >
+                      {nav.title}
+                    </Link>
                   ))}
                 </nav>
               </div>
