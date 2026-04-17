@@ -113,10 +113,9 @@ const experiences = [
     company_name: "Apple",
     date: "June 2023 - September 2023",
     points: [
-      "Returned to Apple for my second internship in the Apple Cloud Services Security Team.",
+      "Returned to Apple for my second internship on the Services Security Team.",
       "Developed an end-to-end application to prevent critical security vulnerabilities at Apple.",
-      "Communicated with designers, managers, and developers to deliver a solution that is used by 100s of Apple Engineers.",
-      "Engaged with internal customers to understand requirements and build features catered to the needs of end-users.",
+      "Communicated with designers, managers, and developers to deliver a secure policy evaluator tool that is now open-sourced.",
     ],
     imageSrc: AppleCanvas,
   },
@@ -137,10 +136,9 @@ const experiences = [
     company_name: "Apple",
     date: "June 2022 - September 2022",
     points: [
-      "First internship at Apple as a Software Engineering in the Apple Cloud Services Security Team.",
+      "First internship at Apple as a Software Engineering on the Services Security Team.",
       "Developed several server-side security features including a rate limiting algorithm in GoLang using a Redis Cache to protect against DDoS attacks.",
-      "Wrote unit tests and continuously deployed applications to Kubernetes production clusters using Spinnaker and Rio.",
-      "Leveraged observability tools for monitoring service health, including Splunk, Prometheus, Pprof and Grafana.",
+      "Wrote unit tests and continuously deployed applications to Kubernetes production clusters.",
     ],
     imageSrc: AppleCanvas,
   },
@@ -149,10 +147,9 @@ const experiences = [
     company_name: "Tesla",
     date: "June 2021 - September 2021",
     points: [
-      "Interned at Tesla as a Software Engineering in the Supercharging Digital Experience Payments Team.",
-      "Developed features and bug ﬁxes rolled to production and consumed by Electric Vehicle users worldwide.",
-      "Worked on backend integration with SQL Databases, business logic in Spark with GoLang, Splunk Logging, and Test Automation Suite in Python.",
-      "Improved a key Supercharging runtime functionality by 25% by implementing an in-memory cache.",
+      "Interned at Tesla as a Software Engineer in the Supercharging - Payments Team.",
+      "Developed rolled capabilities to production and consumed by Electric Vehicle users worldwide.",
+      "Improved a key Supercharging runtime functionality by 25%.",
     ],
     imageSrc: TeslaCanvas,
   },
@@ -161,25 +158,33 @@ const experiences = [
     company_name: "Mercor",
     date: "March 2024 - June 2024",
     points: [
-      "Mercor is an SF based start up revolutionizing the recruitment industry with its AI-based platform.",
-      "Worked as a full stack Software Engineer and managed a team of engineers to build out the applicant user flow.",
-      "Worked on FrontEnd development, managed several backend services, UI/UX, Figma design, prompt engineering and data management.",
-      "Developed an AI-powered resume builder feature that parses resumes, formats them into a professional, readable layout, and provides actionable improvement suggestions.",
+      "Worked as a full stack Software Engineer, leading a team of engineers to build out an applicant user flow.",
+      "Worked on FrontEnd development, managed several backend services, UI/UX, Figma design, and prompt engineering.",
+      "Developed an AI resume builder that parses resumes, formats them into a professional, readable layout, and provides actionable improvement suggestions.",
     ],
     imageSrc: mercor,
   },
   {
     title: "Software Engineer",
     company_name: "Apple",
-    date: "July 2024 - Present",
+    date: "July 2024 - Apr 2026",
     points: [
-      "Returned to Apple full-time as a Security Software Engineer on the Apple Services - Identity & Access Management team.",
-      "Developing and maintaining backend services with a focus on scalability and best authorization practices.",
+      "Software Engineer at Apple building security systems for Authorization and Access Management.",
+      "Developing and maintaining backend services with high loads of traffic (~2000 rps), and managing pedabytes of data.",
       "Handling On-Call responsibilities to ensure service reliability and rapid issue resolution.",
       "Optimizing service performance by leveraging advanced security architectures to enhance CPU efficiency, memory utilization, and latency."
     ],
     imageSrc: AppleCanvas,
   },
+  // {
+  //   title: "Software Engineer",
+  //   company_name: "Sierra",
+  //   date: "Apr 2026 - Present",
+  //   points: [
+  //     "Building secure agentic CRM at Sierra!",
+  //   ],
+  //   imageSrc: AppleCanvas,
+  // },
 ];
 
 export { technologies, experiences };

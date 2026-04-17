@@ -1,5 +1,5 @@
-import React, { Suspense, useEffect, useState, useMemo } from "react";
-import { Canvas } from "@react-three/fiber";
+import React, { Suspense, useEffect, useState, useMemo, useRef } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import CanvasLoader from "../Loader";
 import * as SkeletonUtils from "three/examples/jsm/utils/SkeletonUtils";
@@ -27,14 +27,27 @@ const getResponsiveConfig = (width) => {
   }
 };
 
-const Apple = ({ scale, positionY }) => {
+const Apple = ({ scale, positionY, shouldRotate }) => {
   const { scene } = useGLTF("./apple_logo/scene.gltf");
   const clonedScene = useMemo(() => SkeletonUtils.clone(scene), [scene]);
-  return <primitive object={clonedScene} scale={scale} position-y={positionY} />;
+  const ref = useRef();
+  const rotated = useRef(0);
+
+  useFrame((_, delta) => {
+    if (shouldRotate && ref.current && rotated.current < Math.PI * 2) {
+      const step = delta * 1.5;
+      ref.current.rotation.y += step;
+      rotated.current += step;
+    }
+  });
+
+  return <primitive ref={ref} object={clonedScene} scale={scale} position-y={positionY} />;
 };
 
 const AppleCanvas = () => {
   const [config, setConfig] = useState(getResponsiveConfig(window.innerWidth));
+  const [inView, setInView] = useState(false);
+  const containerRef = useRef();
 
   useEffect(() => {
     const handleResize = () => setConfig(getResponsiveConfig(window.innerWidth));
@@ -42,8 +55,17 @@ const AppleCanvas = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setInView(true); },
+      { threshold: 0.6 }
+    );
+    if (containerRef.current) observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="w-full max-w-[400px] aspect-square mx-auto flex justify-center items-center">
+    <div ref={containerRef} className="w-full max-w-[400px] aspect-square mx-auto flex justify-center items-center">
       <Canvas
         camera={{
           fov: 60,
@@ -54,8 +76,6 @@ const AppleCanvas = () => {
       >
         <Suspense fallback={<CanvasLoader />}>
           <OrbitControls
-            autoRotate
-            autoRotateSpeed={6}
             enableZoom={false}
             maxPolarAngle={Math.PI / 2.2}
             minPolarAngle={Math.PI / 2.2}
@@ -70,7 +90,7 @@ const AppleCanvas = () => {
             shadow-mapSize={1024}
           />
           <pointLight intensity={5} />
-          <Apple scale={config.scale} positionY={config.positionY} />
+          <Apple scale={config.scale} positionY={config.positionY} shouldRotate={inView} />
           <Preload all />
         </Suspense>
       </Canvas>

@@ -1,33 +1,21 @@
-import React, { Suspense, useEffect, useMemo, useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
+import React, { Suspense, useEffect, useMemo, useState, useRef } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { OrbitControls, Preload, useGLTF, Center } from "@react-three/drei";
 import { MeshStandardMaterial } from "three";
 import CanvasLoader from "../Loader";
 
 // Responsive config function
 const getResponsiveConfig = (width) => {
   if (width < 500) {
-    return {
-      scale: 0.35,
-      position: [-30, -10, 0],
-      cameraPosition: [-20, 0, 80],
-    };
+    return { scale: 0.35, cameraPosition: [0, 0, 80] };
   } else if (width < 768) {
-    return {
-      scale: 0.5,
-      position: [-40, -15, 0],
-      cameraPosition: [-20, 0, 90],
-    };
+    return { scale: 0.5, cameraPosition: [0, 0, 90] };
   } else {
-    return {
-      scale: 0.65,
-      position: [-50, -20, 0],
-      cameraPosition: [-20, 0, 100],
-    };
+    return { scale: 0.65, cameraPosition: [0, 0, 100] };
   }
 };
 
-const DevX = ({ scale, position }) => {
+const DevX = ({ scale, shouldRotate }) => {
   const { scene } = useGLTF("./DevX.gltf");
 
   const clonedScene = useMemo(() => {
@@ -41,11 +29,30 @@ const DevX = ({ scale, position }) => {
     return clone;
   }, [scene]);
 
-  return <primitive object={clonedScene} scale={scale} position={position} />;
+  const ref = useRef();
+  const rotated = useRef(0);
+
+  useFrame((_, delta) => {
+    if (shouldRotate && ref.current && rotated.current < Math.PI * 2) {
+      const step = delta * 1.5;
+      ref.current.rotation.y += step;
+      rotated.current += step;
+    }
+  });
+
+  return (
+    <group ref={ref}>
+      <Center>
+        <primitive object={clonedScene} scale={scale} />
+      </Center>
+    </group>
+  );
 };
 
 const DevXCanvas = () => {
   const [config, setConfig] = useState(getResponsiveConfig(window.innerWidth));
+  const [inView, setInView] = useState(false);
+  const containerRef = useRef();
 
   useEffect(() => {
     const handleResize = () =>
@@ -54,8 +61,17 @@ const DevXCanvas = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setInView(true); },
+      { threshold: 0.6 }
+    );
+    if (containerRef.current) observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="w-full max-w-[400px] aspect-square mx-auto flex justify-center items-center">
+    <div ref={containerRef} className="w-full max-w-[400px] aspect-square mx-auto flex justify-center items-center">
       <Canvas
         camera={{
           fov: 60,
@@ -66,8 +82,7 @@ const DevXCanvas = () => {
       >
         <Suspense fallback={<CanvasLoader />}>
           <OrbitControls
-            autoRotate
-            autoRotateSpeed={5}
+
             enableZoom={false}
             maxPolarAngle={Math.PI / 2.2}
             minPolarAngle={Math.PI / 2.2}
@@ -82,7 +97,7 @@ const DevXCanvas = () => {
             shadow-mapSize={1024}
           />
           <pointLight intensity={5} />
-          <DevX scale={config.scale} position={config.position} />
+          <DevX scale={config.scale} shouldRotate={inView} />
           <Preload all />
         </Suspense>
       </Canvas>

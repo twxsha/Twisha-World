@@ -47,19 +47,17 @@ const About = () => {
           className="text-secondary text-[16px] sm:text-[17px] leading-[28px] sm:leading-[30px] mt-10 md:mt-0 text-center xl:text-left"
         >
           Hi, I am <span className="text-[#de1289] font-bold">Twisha</span>. I
-          am a CyberSecurity Engineer building and maintaining Identity-based
-          Access Management services at{" "}
-          <span className="font-bold text-[#6193c2]">Apple</span>
-          . <br /> <br />I recently graduated from the{" "}
-          <span className="italic">
-            University of California - Los Angeles{" "}
-          </span>
-          Samueli School of Engineering, pursuing my bachelor's degree in{" "}
-          <span className="italic">Computer Science</span>. <br /> <br />I have
-          industry experience building end-to-end production-grade services, and
-          I'm always eager to explore the latest in emerging technologies. I
-          hope to make a meaningful impact with my skills, and I'd be thrilled
-          to connect with you!
+          am a Software Engineer at{" "}
+          <span className="font-bold text-[#aad9fb]">Sierra</span>
+          . <br /> <br />I previously worked at{" "}
+          <span className="font-bold text-white">Apple</span>,{" "}
+          <span className="font-bold text-white">Tesla</span>, and{" "}
+          <span className="font-bold text-white">Mercor</span>, and I
+          graduated from <span className="font-bold">UCLA </span>
+          with a degree in Computer Science. <br /> <br />I have industry
+          experience designing, building and scaling end-to-end
+          production-grade services, and I am currently interested in exploring
+          agentic systems. Would love to connect!
         </motion.p>
       </section>
 
@@ -86,7 +84,7 @@ const About = () => {
                       alt="linkedin"
                       className="w-full h-full object-contain"
                     />
-                    <h3 className="text-[#6193c2] text-[20px] font-bold text-center">
+                    <h3 className="text-[#aad9fb] text-[20px] font-bold text-center">
                       {" "}
                       Linkedin{" "}
                     </h3>
